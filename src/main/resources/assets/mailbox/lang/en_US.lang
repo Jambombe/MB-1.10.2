@@ -1,0 +1,13 @@
+# English US Language File for Mail Box Mod
+
+# Creative Tab
+itemGroup.tab_mailbox=Mail Box
+
+
+# Items Name
+item.letter_stamp.name=Letter Stamp
+item.letter.name=Letter
+
+
+# Blocks name
+tile.mail_box.name=Mail Box

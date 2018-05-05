@@ -1,0 +1,16 @@
+[
+{
+  "modid": "mailbox",
+  "name": "Mail Box",
+  "description": "Send and receive mails from your friends !",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Jambon2Parme"],
+  "credits": "Je remercie mes parents de m'avoir mis au monde",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

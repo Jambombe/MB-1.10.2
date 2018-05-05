@@ -1,0 +1,13 @@
+# Francais FR Language File for Mail Box Mod
+
+# Creative Tab
+itemGroup.tab_mailbox=Mail Box
+
+
+# Items Name
+item.letter_stamp.name=Timbre pour lettre
+item.letter.name=Lettre
+
+
+# Blocks name
+tile.mail_box.name=Boîte aux lettres
