@@ -1,6 +1,6 @@
 package net.J2P.MailBox;
 
-import net.J2P.MailBox.block.MailBoxTileEntity;
+import net.J2P.MailBox.tileentity.MailBoxTE;
 import net.J2P.MailBox.block.ModBlocks;
 import net.J2P.MailBox.item.ModItems;
 import net.J2P.MailBox.proxy.CommonProxy;
@@ -47,7 +47,7 @@ public class MailBoxMod
 
         proxy.init(event);
 
-        GameRegistry.registerTileEntity(MailBoxTileEntity.class, MODID+":MailBoxTileEntity");
+        GameRegistry.registerTileEntity(MailBoxTE.class, MODID+":MailBoxTE");
     }
 
     @EventHandler
