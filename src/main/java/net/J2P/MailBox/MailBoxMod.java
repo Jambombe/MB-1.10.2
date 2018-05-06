@@ -1,5 +1,6 @@
 package net.J2P.MailBox;
 
+import net.J2P.MailBox.block.MailBoxTileEntity;
 import net.J2P.MailBox.block.ModBlocks;
 import net.J2P.MailBox.item.ModItems;
 import net.J2P.MailBox.proxy.CommonProxy;
@@ -12,6 +13,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(modid = MailBoxMod.MODID, version = MailBoxMod.VERSION, name = MailBoxMod.NAME)
 public class MailBoxMod
@@ -44,6 +46,8 @@ public class MailBoxMod
     public void init(FMLInitializationEvent event){
 
         proxy.init(event);
+
+        GameRegistry.registerTileEntity(MailBoxTileEntity.class, MODID+":MailBoxTileEntity");
     }
 
     @EventHandler

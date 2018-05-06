@@ -26,7 +26,8 @@ public class LetterItem extends Item {
 
         if (b == ModBlocks.mail_box){
             // Supprime une lettre de la main
-            playerIn.setHeldItem(hand, new ItemStack(ModItems.letter, stack.stackSize -1));
+//            playerIn.setHeldItem(hand, new ItemStack(ModItems.letter, stack.stackSize -1));
+            stack.stackSize--;
 
             return EnumActionResult.SUCCESS;
         }

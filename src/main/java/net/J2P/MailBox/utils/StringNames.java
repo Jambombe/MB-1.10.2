@@ -12,7 +12,8 @@ public class StringNames {
     public static final String MAIL_BOX = "mail_box";
 
 
-
+    // TileEntity Owner
+    public static final String TE_OWNER = "te_owner";
 
 
 
