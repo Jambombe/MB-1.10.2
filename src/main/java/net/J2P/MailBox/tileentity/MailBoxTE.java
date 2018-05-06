@@ -50,11 +50,17 @@ public class MailBoxTE extends TileEntity {
 
     }
 
+    public int getMetaData(){
+
+        return this.getBlockMetadata();
+    }
+
 ///////////// NETWORK METHODS /////////////
 
     @Override
     public SPacketUpdateTileEntity getUpdatePacket() {
-        return new SPacketUpdateTileEntity(this.pos, 3, this.getUpdateTag());
+        int meta = this.getBlockMetadata();
+        return new SPacketUpdateTileEntity(this.pos, meta, this.getUpdateTag());
     }
 
     @Override

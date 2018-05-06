@@ -7,6 +7,7 @@ import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -15,6 +16,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
@@ -83,11 +85,43 @@ public class MailBoxBlock extends Block implements ITileEntityProvider {
 
             MailBoxTE mbte = (MailBoxTE) te;
 
-            playerIn.addChatMessage(new TextComponentString("BlockActivated ("+pos.getX() +", "+pos.getY() +", "+pos.getZ() +") : " + mbte.getUUID()));
+                playerIn.addChatMessage(new TextComponentString("BlockActivated ("+pos.getX() +", "+pos.getY() +", "+pos.getZ() +") : " + mbte.getUUID()));
+                playerIn.addChatMessage(new TextComponentString("BlockActivated ("+pos.getX() +", "+pos.getY() +", "+pos.getZ() +") : " + mbte.getMetaData()));
+                playerIn.addChatMessage(new TextComponentString("canEntityDestroy ? : " + canEntityDestroy(state, worldIn, pos, playerIn)));
+
+                return true;
             }
         }
+        return false;
+    }
 
-        return true;
+
+    /**
+     *
+     * @param state
+     * @param world
+     * @param pos
+     * @param entity
+     * @return True si l'uuid enregistré dans le TileEntity du bloc est égal à l'uuid di player entity
+     * @return Faux Sinon
+     */
+    @Override
+    public boolean canEntityDestroy(IBlockState state, IBlockAccess world, BlockPos pos, Entity entity) {
+
+        TileEntity te = world.getTileEntity(pos);
+
+        if (te != null && te instanceof MailBoxTE && entity instanceof EntityPlayer){
+
+            MailBoxTE mbte = (MailBoxTE) te;
+
+            UUID playerID = mbte.getUUID();
+
+            if (playerID.equals(entity.getUniqueID()))
+                return true;
+            else
+                return false;
+        }
+        return false;
     }
 
     @Override
